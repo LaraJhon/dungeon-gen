@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://h68o2mwcb8e6"]
+
+[ext_resource type="Script" uid="uid://ofasgoxwj34" path="res://Dungeon_gen/DungeonRoom.gd" id="1_sqg22"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37e66"]
+albedo_color = Color(0.22, 0.5, 0.95, 1)
+
+[node name="RoomB" type="Node3D" unique_id=1106841660]
+script = ExtResource("1_sqg22")
+size_in_voxels = Vector3i(4, 1, 2)
+
+[node name="Shell" type="CSGBox3D" parent="."]
+position = Vector3(0, 1.4, 0)
+size = Vector3(16, 3.1, 8)
+material = SubResource("StandardMaterial3D_37e66")
+
+[node name="InteriorCut" type="CSGBox3D" parent="Shell"]
+size = Vector3(15.2, 2.5, 7.2)
+operation = 2
+
+[node name="DOOR_norte" type="CSGBox3D" parent="Shell"]
+position = Vector3(2, 0, -4)
+size = Vector3(4.4, 2.6, 1)
+operation = 2
+
+[node name="DOOR_sur" type="CSGBox3D" parent="Shell"]
+position = Vector3(2, 0, 4)
+rotation_degrees = Vector3(0, 180, 0)
+size = Vector3(4.4, 2.6, 1)
+operation = 2

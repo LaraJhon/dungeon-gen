@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://e4vkqfj3gyx7"]
+
+[ext_resource type="PackedScene" uid="uid://ddomva62c4v17" path="res://Dungeon_gen/assets/PSX_Dungeon/Models/Floor_Tiles.fbx" id="1_g771f"]
+[ext_resource type="PackedScene" uid="uid://bp8m3opo4ff55" path="res://Dungeon_gen/assets/PSX_Dungeon/Models/Wall_01.fbx" id="2_yb50i"]
+
+[node name="CorridorPiece" type="Node3D"]
+
+[node name="PISO" parent="." instance=ExtResource("1_g771f")]
+
+[node name="TECHO" parent="." instance=ExtResource("1_g771f")]
+transform = Transform3D(1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 4, 0)
+
+[node name="PARED_N" parent="." instance=ExtResource("2_yb50i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+
+[node name="PARED_S" parent="." instance=ExtResource("2_yb50i")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 1.5)
+
+[node name="PARED_E" parent="." instance=ExtResource("2_yb50i")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 1.5, 0, 0)
+
+[node name="PARED_O" parent="." instance=ExtResource("2_yb50i")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -1.5, 0, 0)

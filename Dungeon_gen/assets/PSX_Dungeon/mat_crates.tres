@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d16ybse7tfn55"]
+
+[ext_resource type="Texture2D" uid="uid://d1lmgd6bhk83i" path="res://Dungeon_gen/assets/PSX_Dungeon/Textures/CratesAndBarrels_Map.png" id="1_rwm84"]
+
+[resource]
+specular_mode = 2
+albedo_texture = ExtResource("1_rwm84")
+texture_filter = 0

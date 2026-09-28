@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bnehyursq34a7"]
+
+[ext_resource type="PackedScene" uid="uid://bp8m3opo4ff55" path="res://Dungeon_gen/assets/PSX_Dungeon/Models/Wall_01.fbx" id="1_a202f"]
+
+[node name="Node3D" type="Node3D" unique_id=818178717]
+
+[node name="Wall_01" parent="." unique_id=1218695509 instance=ExtResource("1_a202f")]

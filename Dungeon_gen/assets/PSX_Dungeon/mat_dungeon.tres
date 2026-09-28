@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://0cd2fu38rfht"]
+
+[ext_resource type="Texture2D" uid="uid://cexuwr6t2r366" path="res://Dungeon_gen/assets/PSX_Dungeon/Textures/Dungeon_Map.png" id="1_wnvl1"]
+
+[resource]
+specular_mode = 2
+albedo_texture = ExtResource("1_wnvl1")
+texture_filter = 0

@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://cyyekquufer1p"]
+
+[ext_resource type="Script" uid="uid://bacuocmoffu3a" path="res://Dungeon_gen/main.gd" id="1_mlvea"]
+[ext_resource type="Script" uid="uid://bchiv2j186ayc" path="res://Dungeon_gen/DungeonGenerator.gd" id="1_yql1k"]
+[ext_resource type="PackedScene" uid="uid://e4vkqfj3gyx7" path="res://rooms/corridor_piece.tscn" id="4_hg16t"]
+[ext_resource type="Script" uid="uid://ds36i16jcbxbf" path="res://Dungeon_gen/FreeLookCamera.gd" id="6_hg16t"]
+[ext_resource type="PackedScene" uid="uid://ygsr167hobm7" path="res://rooms/room_stair.tscn" id="7_pumq2"]
+[ext_resource type="PackedScene" uid="uid://bitkmp6q5warn" path="res://rooms/room_a_psx.tscn" id="8_2c6aq"]
+[ext_resource type="PackedScene" uid="uid://bfr7n6q7llw13" path="res://rooms/cruce_elevado.tscn" id="9_twdba"]
+[ext_resource type="PackedScene" path="res://rooms/sala_columnas.tscn" id="10_l8aiy"]
+[ext_resource type="PackedScene" path="res://rooms/sala_inundada.tscn" id="11_ivlms"]
+[ext_resource type="PackedScene" path="res://rooms/sala_principal.tscn" id="12_nqajj"]
+[ext_resource type="PackedScene" path="res://rooms/cruz_piedra.tscn" id="13_17oha"]
+[ext_resource type="PackedScene" path="res://rooms/gran_sala_abandonada.tscn" id="14_0gdig"]
+
+[sub_resource type="Environment" id="Environment_htb5h"]
+background_mode = 1
+background_color = Color(0.61960787, 0.7882353, 0.87058824, 0.9843137)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.5
+
+[node name="Main" type="Node3D" unique_id=1262278677]
+script = ExtResource("1_mlvea")
+
+[node name="Generator" type="Node3D" parent="." unique_id=1414014480]
+script = ExtResource("1_yql1k")
+room_scenes = Array[PackedScene]([ExtResource("7_pumq2"), ExtResource("8_2c6aq"), ExtResource("9_twdba"), ExtResource("10_l8aiy"), ExtResource("11_ivlms"), ExtResource("12_nqajj"), ExtResource("13_17oha"), ExtResource("14_0gdig")])
+corridor_piece_scene = ExtResource("4_hg16t")
+room_count = 15
+dungeon_size = Vector3i(40, 10, 40)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=637728675]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 20, 40, 20)
+script = ExtResource("6_hg16t")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1571365792]
+environment = SubResource("Environment_htb5h")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2133435463]
+transform = Transform3D(0.81915206, 0.43938506, -0.36868784, 0, 0.64278764, 0.76604444, 0.57357645, -0.62750685, 0.5265408, 0, 30, 0)
+shadow_enabled = true
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=834777935]
+
+[node name="Panel" type="PanelContainer" parent="UI" unique_id=1285924637]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 260.0
+offset_bottom = 305.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Panel" unique_id=846573629]
+layout_mode = 2
+
+[node name="RoomCountLabel" type="Label" parent="UI/Panel/VBoxContainer" unique_id=1160691566]
+layout_mode = 2
+text = "Cantidad de habitaciones"
+
+[node name="RoomCountSpinBox" type="SpinBox" parent="UI/Panel/VBoxContainer" unique_id=1166147034]
+layout_mode = 2
+min_value = 1.0
+value = 15.0
+
+[node name="DungeonSizeLabel" type="Label" parent="UI/Panel/VBoxContainer" unique_id=1331120702]
+layout_mode = 2
+text = "Tamaño (X / pisos / Z)"
+
+[node name="DungeonSizeRow" type="HBoxContainer" parent="UI/Panel/VBoxContainer" unique_id=693992043]
+layout_mode = 2
+
+[node name="SizeXSpinBox" type="SpinBox" parent="UI/Panel/VBoxContainer/DungeonSizeRow" unique_id=114904723]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 4.0
+max_value = 60.0
+value = 20.0
+
+[node name="SizeYSpinBox" type="SpinBox" parent="UI/Panel/VBoxContainer/DungeonSizeRow" unique_id=1643803106]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 20.0
+value = 5.0
+
+[node name="SizeZSpinBox" type="SpinBox" parent="UI/Panel/VBoxContainer/DungeonSizeRow" unique_id=237469437]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 4.0
+max_value = 60.0
+value = 20.0
+
+[node name="RegenerateButton" type="Button" parent="UI/Panel/VBoxContainer" unique_id=882534002]
+layout_mode = 2
+text = "Generar de nuevo"
+
+[node name="ShowGridCheckBox" type="CheckBox" parent="UI/Panel/VBoxContainer" unique_id=1398137973]
+layout_mode = 2
+button_pressed = true
+text = "Mostrar grilla"
+
+[node name="SpawnPlayerButton" type="Button" parent="UI/Panel/VBoxContainer" unique_id=1713709880]
+layout_mode = 2
+text = "Spawn Player"
